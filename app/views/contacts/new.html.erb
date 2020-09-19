@@ -1,29 +1,29 @@
 <%= form_with(model: @contact, local: true) do |form| %>
-<% if @contact.errors.any? %>
-<div id="error_explanation">
-    <h3><%= @contact.errors.count %>件のエラーがあります。</h3>
-    <ul>
-    <% @contact.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @contact.errors.count %>件のエラーがあります。</h3>
+      <ul>
+        <% @contact.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="name">
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
   </div>
-<% end %>
+  <div class="email">
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </div>
 
-
-
-<div class="name">
-  <%= form.label :name %><br>
-  <%= form.text_field :name %>
-</div>
-<div class="email">
-  <%= form.label :email %><br>
-  <%= form.text_field :email %>
-</div>
-
-<div class="content">
-  <%= form.label :content %><br>
-  <%= form.text_field :content %>
-</div>
+  <div class="content">
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
   <%= form.submit %>
 <% end %>
